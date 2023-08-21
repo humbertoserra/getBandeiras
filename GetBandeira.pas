@@ -5,6 +5,8 @@
 //
 // https://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=/NJarYc9nus=
 // Tabela de bandeiras de Cartões de Crédito/Débito - Publicada em 16/03/2021
+//
+// Certifique-se de testar este código em diversos cenários para garantir que ele esteja funcionando corretamente.
 
 program ExemploEnumBandeiras;
 
@@ -14,7 +16,7 @@ uses
 	System.SysUtils;
 
 type
-	TBandeiraCartao = (bcNenhum, bcVisa, bcMasterCard, bcAmericanExpress, bcSorocred, bcDinersClub,
+	TBandeiraCartao = (bcVisa, bcMasterCard, bcAmericanExpress, bcSorocred, bcDinersClub,
 		  bcElo, bcHipercard, bcAura, bcCabal, bcAlelo, bcBanesCard, bcCalCard, bcCredz,
 		  bcDiscover, bcGoodCard, bcGreenCard, bcHiper, bcJcB, bcMais, bcMaxVan, bcPolicard,
 		  bcRedeCompras, bcSodexo, bcValeCard, bcVerocheque, bcVR, bcTicket);
@@ -22,7 +24,7 @@ type
 
 function GetBandeiraEnum(const tBand: string): Integer;
 const
-	BandeiraMap: array [0..32] of record
+	BandeiraMap: array [0..31] of record
 		Nome: string;
 		Valor: TBandeiraCartao;
 	end = (
@@ -38,7 +40,7 @@ const
 		(Nome: 'ELO'; Valor: bcElo),
 		(Nome: 'DEBELO'; Valor: bcElo),
 		(Nome: 'HIPERCARD'; Valor: bcHipercard),
-		(Nome: 'HIPER'; Valor: bcHipercard),
+		(Nome: 'HIPER'; Valor: bcHiper),
 		(Nome: 'AURA'; Valor: bcAura),
 		(Nome: 'CABAL'; Valor: bcCabal),
 		(Nome: 'ALELO'; Valor: bcAlelo), 
@@ -74,7 +76,6 @@ begin
 			Exit;
 		end;
 	end;
-
 	
 end;
 		  
